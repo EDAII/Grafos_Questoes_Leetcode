@@ -30,7 +30,9 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 **_O problema consiste em reconstruir um itinerário de viagem a partir de uma lista de passagens aéreas. Cada passagem é representada por um par de cidades (origem, destino), e a tarefa é encontrar uma sequência válida de voos que comece em uma cidade específica (geralmente "JFK") e utilize todas as passagens exatamente uma vez. A solução deve retornar o itinerário em ordem lexicográfica, caso existam múltiplas possibilidades. O problema testa habilidades em grafos, busca em profundidade (DFS) e ordenação, exigindo uma abordagem eficiente para lidar com ciclos e conexões._**
 
-![](./332.png)
+<p align="center">
+  <img src="assets\332.png" alt="Print da Questão 332" width="600"/>
+</p>  
 
 ## Problema 3: [3017 Count the Number of Houses at a Certain Distance II](https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/description/)
 - Nível: Difícil
@@ -38,7 +40,9 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
   
 **_O problema  consiste em calcular quantos pares de casas em uma rua reta (representada por uma linha numérica) estão a uma certa distância, considerando um ponto fixo que divide a rua. Dadas as posições das casas e do ponto, a tarefa é determinar o número de pares para cada distância possível. A solução exige eficiência na manipulação de arrays e cálculos de distâncias, ajustando para o ponto fixo._**
 
-![](./3017.png)
+<p align="center">
+  <img src="assets\3017.png" alt="Print da Questão 3017" width="600"/>
+</p>  
 
 ## Problema 4: [834 Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree/description/)
 - Nível: Difícil
@@ -46,7 +50,9 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 **_O problema envolve calcular a soma das distâncias de cada nó a todos os outros nós em uma árvore não direcionada. Dada a quantidade de nós e as arestas que os conectam, a tarefa é retornar um array onde cada elemento representa a soma das distâncias de um nó específico a todos os outros._**
 
-![](./834.png)
+<p align="center">
+  <img src="assets\834.png" alt="Print da Questão 834" width="600"/>
+</p>  
 
 ## Instalação 
 **Linguagem**: C <br>
