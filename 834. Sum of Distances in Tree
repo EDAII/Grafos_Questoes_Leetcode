@@ -1,0 +1,72 @@
+#include <stdlib.h>
+#include <string.h>
+
+// Estrutura do Mapa
+// Define uma lista de adjacência para armazenar vizinhos de cada nó (cidade), como um livro de endereços.
+typedef struct {
+    int* nodes;      // Lista de nós vizinhos
+    int size;        // Quantos vizinhos estão na lista
+    int capacity;    // Tamanho máximo da lista
+} AdjList;
+
+// Adiciona uma aresta entre dois nós.
+void addEdge(AdjList* graph, int u, int v) {
+    if (graph[u].size == graph[u].capacity) {
+        graph[u].capacity = graph[u].capacity == 0 ? 2 : graph[u].capacity * 2;
+        graph[u].nodes = (int*)realloc(graph[u].nodes, graph[u].capacity * sizeof(int));
+    }
+    graph[u].nodes[graph[u].size++] = v;
+}
+
+// BFS 1: 
+// Explora a árvore a partir de um nó, contando cidades em cada região e calculando a soma de distâncias do nó 0.
+void dfs1(int node, int parent, int depth, AdjList* graph, int* count, int* ans) {
+    count[node] = 1;           // Conta o próprio nó
+    ans[0] += depth;           // Adiciona a distância até este nó à soma inicial
+//Usa a Lista de adjacencia para acessar os vizinhos do nó atual
+    for (int i = 0; i < graph[node].size; i++) {
+        int child = graph[node].nodes[i];
+        if (child != parent) { // Não deixa voltar ao nó pai
+            dfs1(child, node, depth + 1, graph, count, ans); // Explora o filho
+            count[node] += count[child]; // Soma o número de nós na subarvore do filho
+        }
+    }
+}
+
+// BFS 2:
+// Reutiliza a soma de distâncias do nó 0 para calcular as somas dos outros nós, ajustando com base nas regiões.
+void dfs2(int node, int parent, int n, AdjList* graph, int* count, int* ans) {
+    for (int i = 0; i < graph[node].size; i++) { 
+        int child = graph[node].nodes[i];
+        if (child != parent) {
+            ans[child] = ans[node] - count[child] + (n - count[child]);
+            dfs2(child, node, n, graph, count, ans); // Explora o filho
+        }
+    }
+}
+
+// Organização
+// Função principal que monta o mapa, chama as explorações e retorna as somas de distâncias.
+int* sumOfDistancesInTree(int n, int** edges, int edgesSize, int* edgesColSize, int* returnSize) {
+    // Cria o mapa (grafo) com listas de adjacência para cada nó
+    AdjList* graph = (AdjList*)calloc(n, sizeof(AdjList));
+    for (int i = 0; i < edgesSize; i++) {
+        int u = edges[i][0], v = edges[i][1];
+        addEdge(graph, u, v); // Adiciona conexão de u para v
+        addEdge(graph, v, u); // Adiciona conexão de v para u (árvore é bidirecional)
+    }
+
+    int* count = (int*)calloc(n, sizeof(int));
+    int* ans = (int*)calloc(n, sizeof(int));
+    dfs1(0, -1, 0, graph, count, ans);
+    dfs2(0, -1, n, graph, count, ans);
+    for (int i = 0; i < n; i++) {
+        free(graph[i].nodes);
+    }
+
+    free(graph);
+    free(count);
+
+    *returnSize = n; // Define o tamanho do array de saída
+    return ans;      // Retorna o array com as somas de distâncias
+}

@@ -1,0 +1,45 @@
+// 785 is Graph Bipartite?
+typedef struct queue {
+    int elem[100];
+    int i;
+    int f;
+} queue_t;
+
+bool empty(queue_t q) {
+    return q.i == q.f;
+}
+void enqueue(queue_t *q, int i) {
+    q->elem[q->f++] = i;
+}
+int dequeue(queue_t* q) {
+    return q->elem[q->i++];
+}
+
+bool isBipartite(int** graph, int graphSize, int* graphColSize) {
+    int node_level[graphSize];
+    memset(node_level, -1, graphSize*sizeof(int));
+    
+    // BFS
+    queue_t S = { .i = 0, .f = 0 };
+    for(int i=0, level=0; i<graphSize; i++, level=0) {
+        if(node_level[i] != -1) // se já foi visitado
+            continue;
+        enqueue(&S, i);
+        node_level[i] = level;  // 1º nó do componente conectado tem level == 0
+        while(!empty(S)) {
+            int node = dequeue(&S);
+            level++;
+            for(int j=0; j<graphColSize[node]; j++) {
+                int neighbor = *(graph[node] + j);
+                if(node_level[neighbor] != -1) {    // se vizinho já foi visitado, há um ciclo
+                    if(node_level[j] == node_level[node]) // se ciclo é ímpar, não é bipartido
+                        return false;
+                } else {
+                    enqueue(&S, j);
+                    node_level[j] = level;
+                }
+            }
+        }
+    }
+    return true;
+}
