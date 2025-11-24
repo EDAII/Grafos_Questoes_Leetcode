@@ -16,7 +16,7 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 ## Problema 1: [785 Is Graph Bipartite?](https://leetcode.com/problems/is-graph-bipartite/solutions/?envType=problem-list-v2&envId=graph)
 - Nível: Médio
-- Implementação:[Código 1](https://github.com/projeto-de-algoritmos-2025/Grafos-1/blob/main/is%20Graph%20Bipartite%3F%20785)
+- Implementação:[Código 1](https://github.com/EDAII/Grafos_Questoes_Leetcode/blob/main/785.%20is%20Graph%20Bipartite)
 
 **_A atividade tem como objetivo verificar se um grafo não direcionado pode ser dividido em dois grupos de vértices, de forma que não existam arestas entre vértices do mesmo grupo. O grafo é representado por uma lista de adjacência. A tarefa é retornar true se ele for bipartido e false caso contrário. A solução envolve percorrer o grafo (usando BFS ou DFS) e tentar colorir os vértices com duas cores diferentes. Se houver um conflito de coloração, o grafo não é bipartido. O problema é útil em contextos como formação de grupos e detecção de ciclos ímpares._**
   
