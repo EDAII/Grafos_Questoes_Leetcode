@@ -31,7 +31,7 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 ## Problema 3: [3017 Count the Number of Houses at a Certain Distance II](https://leetcode.com/problems/count-the-number-of-houses-at-a-certain-distance-ii/description/)
 - Nível: Difícil
-- Implementação:[Código 3](https://github.com/projeto-de-algoritmos-2025/Grafos-1/blob/main/3017.%20Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II)
+- Implementação:[Código 3](https://github.com/EDAII/Grafos_Questoes_Leetcode/blob/main/3017.%20Count%20the%20Number%20of%20Houses%20at%20a%20Certain%20Distance%20II)
   
 **_O problema  consiste em calcular quantos pares de casas em uma rua reta (representada por uma linha numérica) estão a uma certa distância, considerando um ponto fixo que divide a rua. Dadas as posições das casas e do ponto, a tarefa é determinar o número de pares para cada distância possível. A solução exige eficiência na manipulação de arrays e cálculos de distâncias, ajustando para o ponto fixo._**
 
