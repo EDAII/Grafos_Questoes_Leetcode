@@ -1,0 +1,86 @@
+#include <stdlib.h>
+#include <string.h>
+
+#define CODE_LEN 4     // Tamanho dos códigos de aeroporto (3 letras + null terminator)
+
+// Estrutura para representar conexões (arestas)
+typedef struct Node {
+    char to[CODE_LEN];   // Código do aeroporto de destino
+    struct Node* next;   // Próximo destino
+} Node;
+
+// Estrutura para representar um aeroporto
+typedef struct {
+    char from[CODE_LEN]; // Código do aeroporto de origem
+    Node* list;          // Lista de destinos ordenados
+} Graph;
+
+// Protótipo da função
+char** findItinerary(char*** tickets, int ticketsSize, int* ticketsColSize, int* returnSize);
+
+// Funções auxiliares
+int getOrCreateIndex(const char* from, Graph* g, int* gSize, int maxSize) {
+    for (int i = 0; i < *gSize; i++)
+        if (strcmp(g[i].from, from) == 0)
+            return i;
+    if (*gSize < maxSize) {
+        strcpy(g[*gSize].from, from);
+        g[*gSize].list = NULL;
+        return (*gSize)++;
+    }
+    return -1; // Não deve ocorrer, dado o tamanho maxSize
+}
+
+void addEdge(const char* from, const char* to, Graph* g, int* gSize, int maxSize) {
+    int idx = getOrCreateIndex(from, g, gSize, maxSize);
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    strcpy(newNode->to, to);
+    newNode->next = NULL;
+    if (!g[idx].list || strcmp(to, g[idx].list->to) < 0) {
+        newNode->next = g[idx].list;
+        g[idx].list = newNode;
+    } else {
+        Node* cur = g[idx].list;
+        while (cur->next && strcmp(to, cur->next->to) > 0)
+            cur = cur->next;
+        newNode->next = cur->next;
+        cur->next = newNode;
+    }
+}
+
+void dfs(const char* airport, char** ans, int* ansSize, Graph* g, int* gSize, int maxSize) {
+    int idx = getOrCreateIndex(airport, g, gSize, maxSize);
+    while (g[idx].list) {
+        Node* temp = g[idx].list;
+        g[idx].list = temp->next;
+        dfs(temp->to, ans, ansSize, g, gSize, maxSize);
+        free(temp);
+    }
+    ans[*ansSize] = (char*)malloc(CODE_LEN * sizeof(char));
+    strcpy(ans[*ansSize], airport);
+    (*ansSize)++;
+}
+
+// Função principal
+char** findItinerary(char*** tickets, int ticketsSize, int* ticketsColSize, int* returnSize) {
+    int maxSize = ticketsSize + 1; // Máximo de aeroportos únicos
+    Graph* g = (Graph*)calloc(maxSize, sizeof(Graph));
+    int gSize = 0;
+    char** ans = (char**)malloc((ticketsSize + 1) * sizeof(char*));
+    int ansSize = 0;
+
+    for (int i = 0; i < ticketsSize; i++)
+        addEdge(tickets[i][0], tickets[i][1], g, &gSize, maxSize);
+
+    dfs("JFK", ans, &ansSize, g, &gSize, maxSize);
+
+    for (int i = 0; i < ansSize / 2; i++) {
+        char* tmp = ans[i];
+        ans[i] = ans[ansSize - 1 - i];
+        ans[ansSize - 1 - i] = tmp;
+    }
+
+    free(g);
+    *returnSize = ansSize;
+    return ans;
+}
