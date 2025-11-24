@@ -39,7 +39,7 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 ## Problema 4: [834 Sum of Distances in Tree](https://leetcode.com/problems/sum-of-distances-in-tree/description/)
 - Nível: Difícil
-- Implementação:[Código 4](https://github.com/projeto-de-algoritmos-2025/Grafos-1/blob/main/834.png)
+- Implementação:[Código 4](https://github.com/EDAII/Grafos_Questoes_Leetcode/blob/main/834.%20Sum%20of%20Distances%20in%20Tree)
 
 **_O problema envolve calcular a soma das distâncias de cada nó a todos os outros nós em uma árvore não direcionada. Dada a quantidade de nós e as arestas que os conectam, a tarefa é retornar um array onde cada elemento representa a soma das distâncias de um nó específico a todos os outros._**
 
