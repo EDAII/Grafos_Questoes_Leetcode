@@ -20,7 +20,9 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 
 **_A atividade tem como objetivo verificar se um grafo não direcionado pode ser dividido em dois grupos de vértices, de forma que não existam arestas entre vértices do mesmo grupo. O grafo é representado por uma lista de adjacência. A tarefa é retornar true se ele for bipartido e false caso contrário. A solução envolve percorrer o grafo (usando BFS ou DFS) e tentar colorir os vértices com duas cores diferentes. Se houver um conflito de coloração, o grafo não é bipartido. O problema é útil em contextos como formação de grupos e detecção de ciclos ímpares._**
   
-![](C:\Users\gc539\OneDrive\Documentos\GitHub\Grafos_Questoes_Leetcode\assets\785.png)
+<p align="center">
+  <img src="assets\785.png" alt="Print da Questão 785" width="600"/>
+</p>    
 
 ## Problema 2: [332 Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
 - Nível: Difícil
