@@ -23,7 +23,7 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 ![](./0785.png)
 ## Problema 2: [332 Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/description/)
 - Nível: Difícil
-- Implementação:[Código 2](https://github.com/projeto-de-algoritmos-2025/Grafos-1/blob/main/332.%20Reconstruct%20Itinerary)
+- Implementação:[Código 2](https://github.com/EDAII/Grafos_Questoes_Leetcode/blob/main/332.%20Reconstruct%20Itinerary)
 
 **_O problema consiste em reconstruir um itinerário de viagem a partir de uma lista de passagens aéreas. Cada passagem é representada por um par de cidades (origem, destino), e a tarefa é encontrar uma sequência válida de voos que comece em uma cidade específica (geralmente "JFK") e utilize todas as passagens exatamente uma vez. A solução deve retornar o itinerário em ordem lexicográfica, caso existam múltiplas possibilidades. O problema testa habilidades em grafos, busca em profundidade (DFS) e ordenação, exigindo uma abordagem eficiente para lidar com ciclos e conexões._**
 
