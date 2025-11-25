@@ -72,6 +72,8 @@ $ python solution.py
 ```
 Se você estiver utilizando Python 3 especificamente, use:
 
+```
 $ python3 solution.py
 
+```
 Este comando irá executar o código e gerar a saída diretamente no terminal.
