@@ -58,11 +58,20 @@ O projeto consiste na resolução de questões que examinam o conteúdo visto na
 **Linguagem**: C <br>
 **Framework**: _(Nenhum)_ <br>
 
-## Uso
-Necessário um compilador C99 ou superior. Por exemplo, para compilar o arquivo `problem1.c` utilizando o GCC:
+##Uso
+
+Necessário Python 3 ou superior. Para rodar o código Python:
+
+Salve o código em um arquivo Python, por exemplo, solution.py.
+
+Execute o código no terminal:
+```
+
+$ python solution.py
 
 ```
-$ gcc ./problem.1c -o problem1
-$ ./problem1
-```
+Se você estiver utilizando Python 3 especificamente, use:
 
+$ python3 solution.py
+
+Este comando irá executar o código e gerar a saída diretamente no terminal.
